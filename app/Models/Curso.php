@@ -9,4 +9,9 @@ class Curso extends Model
 {
     use HasFactory;
     protected $fillable = ['nombre', 'descripcion'];
+
+    public function programa()
+    {
+        return $this->hasOne(Programa::class);
+    }
 }

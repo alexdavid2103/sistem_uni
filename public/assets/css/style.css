@@ -11,7 +11,7 @@
 body {
   height: 100vh;
   width: 100%;
-  background: linear-gradient(to bottom, #003566  23%, #a8dadc 95%);
+  background: linear-gradient(to bottom, #bf0603  23%, #fff 85%);
 }
 
 .header {
@@ -52,7 +52,7 @@ body {
 }
 
 .navbar .links a:hover {
-  color: #ffd60a;
+  color: #fff;
 }
 
 .navbar .buttons a {
@@ -68,7 +68,7 @@ body {
 }
 
 .navbar .buttons .signin:hover {
-  color: #ffd60a;
+  color: #fff;
 }
 
 .navbar .buttons .signup {
@@ -80,7 +80,7 @@ body {
 }
 
 .navbar .buttons .signup:hover {
-  background-color: #ffd60a;
+  background-color: #bf0603;
   color: #fff;
 }
 
@@ -133,7 +133,7 @@ body {
 }
 
 .buttons .join {
-  background-color: #ffd60a;
+  background-color: #bf0603;
 }
 
 .hero-section .buttons .learn {
@@ -142,7 +142,7 @@ body {
 }
 
 .hero-section .buttons a:hover {
-  background-color: #ffd60a;
+  background-color: #bf0603;
 }
 
 /* Hamburger menu styles */

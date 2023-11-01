@@ -9,7 +9,7 @@
   <body>
     <header class="header">
       <nav class="navbar">
-        <h2 class="logo"><a href="#">Sistem_Uni</a></h2>
+        <h2 class="logo"><a href="#">EduCheck</a></h2>
         <input type="checkbox" id="menu-toggle" />
         <label for="menu-toggle" id="hamburger-btn">
           <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
@@ -40,7 +40,7 @@
         </div>
       </div>
       <div class="img">
-        <img src="assets/img/lista_edit.png" alt="hero image" />
+        <img src="assets/img/logo_sin_fondo.png" alt="hero image" />
       </div>
     </section>
   </body>

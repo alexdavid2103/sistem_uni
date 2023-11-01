@@ -17,19 +17,19 @@
         <p>Estudiantes</p>
     </a>
     <a href="{{ route('docentes.index') }}" class="nav-link {{ Request::is('docentes') ? 'active' : '' }}">
-        <i class="nav-icon fas fa-home"></i>
+        <i class="nav-icon fas fa-user-tie"></i>
         <p>Docentes</p>
     </a>
     <a href="{{ route('cursos.index')}}" class="nav-link {{ Request::is('cursos') ? 'active' : '' }}">
-        <i class="nav-icon fas fa-home"></i>
+        <i class="nav-icon fas fa-wallet"></i>
         <p>Cursos</p>
     </a>
     <a href="{{ route('notas.index')}}" class="nav-link {{ Request::is('notas') ? 'active' : '' }}">
-        <i class="nav-icon fas fa-home"></i>
+        <i class="nav-icon fas fa-file"></i>
         <p>Notas</p>
     </a>
     <a href="{{ route('programas.index')}}" class="nav-link {{ Request::is('programas') ? 'active' : '' }}">
-        <i class="nav-icon fas fa-home"></i>
+        <i class="nav-icon fas fa-bookmark"></i>
         <p>Programas</p>
     </a>
 </li>

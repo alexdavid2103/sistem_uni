@@ -25,6 +25,20 @@
                             <form action="{{ route('notas.store') }}" method="POST">
                               @csrf
                               <div class="row">
+
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <label for="id_estudiante">Estudiante </label>
+                                    <div class="form-group">
+                                       
+                                        <select name="id_estudiantes" id="id_estudiantes" class="form-control" required>
+                                            <option value="">Seleccionar alumno</option>
+                                            @foreach ($estudiante as $estudiante)
+                                            <option value="{{$estudiante->id }}">{{$estudiante->nombre}}</option>
+                                            @endforeach
+                                         </select>
+                                    </div>
+                                </div>
+
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <label for="nota1">Nota 1: </label>
@@ -53,20 +67,6 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <label for="id_estudiante">Estudiante </label>
-                                    <div class="form-group">
-                                       
-                                        <select name="id_estudiantes" id="id_estudiantes" class="form-control" required>
-                                            <option value="">Seleccionar alumno</option>
-                                            @foreach ($estudiante as $estudiante)
-                                            <option value="{{$estudiante->id }}">
-                                               {{$estudiante->Nombre}}</option>
-                                            @endforeach
-                                         </select>
-                                    </div>
-                                </div>
-                     
                                     <button type="submit" class="btn btn-primary">Guardar</button>
 
                             </div>

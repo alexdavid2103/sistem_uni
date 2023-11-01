@@ -1,120 +1,78 @@
-<x-laravel-ui-adminlte::adminlte-layout>
+<!DOCTYPE html>
+<html lang="en">
 
-    <body class="hold-transition register-page">
-        <div class="register-box">
-            <div class="register-logo">
-                <a href="{{ url('/home') }}"><b>{{ config('app.name') }}</b></a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
+
+<body>
+    <div class="container flex">
+        <div class="facebook-page flex">
+            <div class="text">
+                <h1>EduCheck</h1>
+                <p>"¡Bienvenido al sistema de Calificaciones!"  </p>
+                <p>Registrar Nueva Cuenta</p>
+            </div>
+            <form method="post" action="{{ url('register') }}">
+                @csrf
+                <div>
+                <input type="text" name="name" 
+                    class="form @error('name') is-invalid @enderror"  value="{{ old('name') }}" placeholder="Full Name" required>
+                @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+                <div>
+                <input type="email" name="email" value="{{ old('email') }}" placeholder="Email"
+                    class="form @error('email') is-invalid @enderror" required>
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                </div>
+                <div>
+                <select name="role" class="form-control @error('role') is-invalid @enderror" placeholder="Selecione su Rol">
+                    <option value="" disabled>Selecciona un rol</option>
+                    <option value="user">Usuario</option>
+                    <option value="admin">Administrador</option>
+                    <option value="estudiante">Estudiante</option>
+                    <option value="docente">Docente</option>
+                    
+                </select>
+                @error('role')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                 @enderror
+                        </div>
+                
+                <div>
+                <input type="password" name="password" placeholder="Password"
+                    class="form @error('password') is-invalid @enderror" required>
+                @error('password')
+                    <span class="error invalid-feedback">{{ $message }}</span>
+                @enderror
             </div>
 
-            <div class="card">
-                <div class="card-body register-card-body">
-                    <p class="login-box-msg">Register a new membership</p>
-
-                    <form method="post" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="input-group mb-3">
-                            <input type="text" name="name"
-                                class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}"
-                                placeholder="Full name">
-                            <div class="input-group-append">
-                                <div class="input-group-text"><span class="fas fa-user"></span></div>
-                            </div>
-                            @error('name')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <input type="email" name="email" value="{{ old('email') }}"
-                                class="form-control @error('email') is-invalid @enderror" placeholder="Email">
-                            <div class="input-group-append">
-                                <div class="input-group-text"><span class="fas fa-envelope"></span></div>
-                            </div>
-                            @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <select name="role" class="form-control @error('role') is-invalid @enderror">
-                                <option value="">Selecciona un rol</option>
-                                <option value="user">Usuario</option>
-                                <option value="admin">Administrador</option>
-                                <option value="estudiante">Estudiante</option>
-                                <option value="docente">Docente</option>
-                                
-                            </select>
-                            <div class="input-group-append">
-                                <div class="input-group-text"><span class="fas fa-user"></span></div>
-                            </div>
-                            @error('role')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-
-                        {{-- <div class="form-group">
-                            <label for="role">Rol:</label>
-                            <select id="role" class="form-control" name="role">
-                                <option value="user">Usuario</option>
-                                <option value="admin">Administrador</option>
-                                <option value="estudiante">Estudiante</option>
-                                <option value="docente">Docente</option>
-                                
-                            </select>
-                        </div> --}}
-
-                        <div class="input-group mb-3">
-                            <input type="password" name="password"
-                                class="form-control @error('password') is-invalid @enderror" placeholder="Password">
-                            <div class="input-group-append">
-                                <div class="input-group-text"><span class="fas fa-lock"></span></div>
-                            </div>
-                            @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <input type="password" name="password_confirmation" class="form-control"
-                                placeholder="Retype password">
-                            <div class="input-group-append">
-                                <div class="input-group-text"><span class="fas fa-lock"></span></div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="icheck-primary">
-                                    <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-                                    <label for="agreeTerms">
-                                        I agree to the <a href="#">terms</a>
-                                    </label>
-                                </div>
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-4">
-                                <button type="submit" class="btn btn-primary btn-block">Register</button>
-                            </div>
-                            <!-- /.col -->
-                        </div>
-                    </form>
-
-                    <a href="{{ route('login') }}" class="text-center">I already have a membership</a>
+            <div>
+                <input type="password_confirmation" name="password" placeholder="confirm Password" required>
+            </div>
+                <div class="link">
+                    <button type="submit" class="login">Register</button>
                 </div>
-                <!-- /.form-box -->
-            </div><!-- /.card -->
-
-            <!-- /.form-box -->
+                <hr>
+                <div class="button">
+                    <a href="{{ route('login') }}">¿Ya tienes Cuenta?</a>
+                </div>
+            </form>
         </div>
-        <!-- /.register-box -->
-    </body>
-</x-laravel-ui-adminlte::adminlte-layout>
+    </div>
+</body>
+
+</html>

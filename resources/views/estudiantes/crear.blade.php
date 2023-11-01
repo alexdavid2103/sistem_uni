@@ -78,7 +78,7 @@
                                         <select name="id_cursos" id="id_cursos" class="form-control" required>
                                             <option value="" disabled>Seleccionar curso</option>
                                             @foreach ($curso as $curso )
-                                            <option value="{{$curso->id }}">{{$curso->nombre }}</option>"
+                                            <option value="{{$curso->id }}">{{$curso->nombre }}</option>
                                             @endforeach
                                          </select>
                                     </div>

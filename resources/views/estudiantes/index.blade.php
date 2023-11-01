@@ -22,6 +22,8 @@
                                     <th style="color: #fff">Telefono</th>
                                     <th style="color: #fff">Correo</th>
                                     <th style="color: #fff">Direccion</th>
+                                    <th style="color: #fff">Docente</th>
+                                    <th style="color: #fff">Curso</th>
                                     <th style="color: #fff">Acciones</th>
 
                                 </thead>
@@ -34,6 +36,8 @@
                                         <td>{{$estudiante->telefono}}</td>
                                         <td>{{$estudiante->correo}}</td>
                                         <td>{{$estudiante->direccion}}</td>
+                                        <td>{{$estudiante->id_docentes}}</td>
+                                        <td>{{$estudiante->id_cursos}}</td>
                                         <td>
                                             <form action="{{ route('estudiantes.destroy',$estudiante->id) }}" method="POST">
                                                 @can('editar-estudiante')

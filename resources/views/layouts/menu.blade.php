@@ -24,6 +24,10 @@
         <i class="nav-icon fas fa-home"></i>
         <p>Cursos</p>
     </a>
+    <a href="{{ route('notas.index')}}" class="nav-link {{ Request::is('notas') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-home"></i>
+        <p>Notas</p>
+    </a>
     <a href="{{ route('programas.index')}}" class="nav-link {{ Request::is('programas') ? 'active' : '' }}">
         <i class="nav-icon fas fa-home"></i>
         <p>Programas</p>

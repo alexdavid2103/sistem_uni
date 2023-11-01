@@ -18,7 +18,12 @@ return new class extends Migration
             $table->string('telefono');
             $table->string('correo');
             $table->string('direccion');
+            $table->unsignedBigInteger('id_docentes');
+            $table->unsignedBigInteger('id_cursos');
             $table->timestamps();
+
+            $table->foreign('id_docentes')->references('id')->on('docentes')->onDelete('cascade');
+            $table->foreign('id_cursos')->references('id')->on('cursos')->onDelete('cascade');
         });
     }
 

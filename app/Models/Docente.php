@@ -9,14 +9,4 @@ class Docente extends Model
 {
     use HasFactory;
     protected $fillable = ['nombre', 'apellido', 'telefono', 'correo', 'direccion'];
-
-    public function estudiantes()
-    {
-        return $this->belongsToMany(Estudiante::class, 'estudiante_docente', 'docente_id', 'estudiante_id');
-    }
-
-    public function programa()
-    {
-        return $this->hasOne(Programa::class);
-    }
 }

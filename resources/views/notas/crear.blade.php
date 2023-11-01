@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page-heading">Crear Estudiantes</h3>
+            <h3 class="page-heading">Crear Nota</h3>
         </div>
         <div class="section-body">
             <div class="row">
@@ -22,63 +22,46 @@
                             </div>
                             @endif
 
-                            <form action="{{ route('estudiantes.store') }}" method="POST">
+                            <form action="{{ route('notas.store') }}" method="POST">
                               @csrf
                               <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <label for="name">Nombre</label>
-                                        <input type="text" name="nombre" class="form-control">
+                                        <label for="nota1">Nota 1: </label>
+                                        <input type="number" step="any" name="nota1" id="nota1" class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <label for="apellido">Apellido</label>
-                                        <input type="text" name="apellido" class="form-control">
+                                        <label for="nota2">Nota 2: </label>
+                                        <input type="number" step="any" name="nota2" id="nota2" class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <label for="telefono">Telefono</label>
-                                        <input type="number" name="telefono" class="form-control">
+                                        <label for="nota3">Nota 3: </label>
+                                        <input type="number" step="any" name="nota3" id="nota3" class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <label for="correo">Correo</label>
-                                        <input type="email" name="correo" class="form-control">
+                                        <label for="definitiva">Definitiva </label>
+                                        <input type="number" step="any" name="definitiva" id="definitiva" class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <label for="id_estudiante">Estudiante </label>
                                     <div class="form-group">
-                                        <label for="direccion">Direccion</label>
-                                        <input type="text" name="direccion" class="form-control">
-                                    </div>
-                                </div>
-
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <label for="direccion">Selecionar Docente</label>
-                                    <div class="form-group">
-                                        <select name="id_docentes" id="id_docentes" class="form-control" required>
-                                            <option value="" disabled>Seleccionar docente</option>
-                                            @foreach ($docente as $docente )
-                                            <option value="{{$docente->id }}">{{$docente->nombre }}</option>"
-                                            @endforeach
-                                         </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <label for="direccion">Selecionar Curso</label>
-                                    <div class="form-group">
-                                        <select name="id_cursos" id="id_cursos" class="form-control" required>
-                                            <option value="" disabled>Seleccionar curso</option>
-                                            @foreach ($curso as $curso )
-                                            <option value="{{$curso->id }}">{{$curso->nombre }}</option>"
+                                       
+                                        <select name="id_estudiantes" id="id_estudiantes" class="form-control" required>
+                                            <option value="">Seleccionar alumno</option>
+                                            @foreach ($estudiante as $estudiante)
+                                            <option value="{{$estudiante->id }}">
+                                               {{$estudiante->Nombre}}</option>
                                             @endforeach
                                          </select>
                                     </div>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Estudiante;
+use App\Models\Docente;
+use App\Models\Curso;
 
 class EstudianteController extends Controller
 {
@@ -28,7 +30,7 @@ class EstudianteController extends Controller
      */
     public function create()
     {
-        return view('estudiantes.crear');
+        return view('estudiantes.crear',  ['docente' =>Docente::all(), 'curso'=>Curso::all()]);
     }
 
     /**
@@ -41,9 +43,19 @@ class EstudianteController extends Controller
             'apellido' => 'required',
             'telefono' => 'required',
             'correo' => 'required',
-            'direccion' => 'required'
+            'direccion' => 'required',
+            'id_docentes' => 'required',
+            'id_cursos' => 'required',
         ]);
-        Estudiante::create($request->all());
+        $estudiantes = new Estudiante();
+        $estudiantes->nombre=$request->input('nombre');
+        $estudiantes->apellido=$request->input('apellido');
+        $estudiantes->telefono=$request->input('telefono');
+        $estudiantes->correo=$request->input('correo');
+        $estudiantes->direccion=$request->input('direccion');
+        $estudiantes->id_docentes=$request->input('id_docentes');
+        $estudiantes->id_cursos=$request->input('id_cursos');
+        $estudiantes->save();
         return redirect()->route('estudiantes.index');
     }
 
@@ -60,7 +72,8 @@ class EstudianteController extends Controller
      */
     public function edit(Estudiante $estudiante)
     {
-        return view('estudiantes.edit', compact('estudiante'));
+        $estudiante=Estudiante::find($estudiante);
+        return view('estudiantes.edit', ['estudiante'=>$estudiante, 'docentes'=>Docente::all(), 'cursos'=>Curso::all()]);
     }
 
     /**
@@ -73,9 +86,18 @@ class EstudianteController extends Controller
             'apellido' => 'required',
             'telefono' => 'required',
             'correo' => 'required',
-            'direccion' => 'required'
+            'direccion' => 'required',
+            'id_profesores' => 'required',
+            'id_cursos' => 'required'
         ]);
-        $estudiante->update($request->all());
+        $estudiante = Estudiante::find($estudiante);
+        $estudiante->nombre=$request->input('nombre');
+        $estudiante->apellido=$request->input('apellido');
+        $estudiante->telefono=$request->input('telefono');
+        $estudiante->correo=$request->input('correo');
+        $estudiante->id_docentes=$request->input('id_docentes');
+        $estudiante->id_cursos=$request->input('id_cursos');
+        $estudiante->save();
         return redirect()->route('estudiantes.index');
     }
 

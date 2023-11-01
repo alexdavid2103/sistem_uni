@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Curso;
+use App\Models\programa;
 
 class CursoController extends Controller
 {
@@ -22,7 +23,7 @@ class CursoController extends Controller
 
     public function create()
     {
-        return view('cursos.crear');
+        return view('cursos.crear', ['programas' =>Programa::all()]);
     }
 
     public function store(Request $request)
@@ -30,8 +31,13 @@ class CursoController extends Controller
         request()->validate([
             'nombre' => 'required',
             'descripcion' => 'required',
+            'id_programa' => 'required',
         ]);
-        Curso::create($request->all());
+        $curso = new Curso();
+        $curso->nombre=$request->input('nombre');
+        $curso->descripcion=$request->input('descripcion');
+        $curso->id_programa=$request->input('id_programa');
+        $curso->save();
         return redirect()->route('cursos.index');
     }
 
@@ -45,7 +51,8 @@ class CursoController extends Controller
      */
     public function edit(Curso $curso)
     {
-        return view('cursos.edit', compact('curso'));
+        $curso=Curso::find($curso);
+        return view('cursos.edit', ['curso'=>$curso, 'programas'=>Programa::all()]);
     }
 
     public function update(Request $request, Curso $curso)
@@ -53,8 +60,13 @@ class CursoController extends Controller
         request()->validate([
             'nombre' => 'required',
             'descripcion' => 'required',
+            'id_programa' => 'required',
         ]);
-        $curso->update($request->all());
+        $curso = new Curso();
+        $curso->nombre=$request->input('nombre');
+        $curso->descripcion=$request->input('descripcion');
+        $curso->id_programa=$request->input('id_programa');
+        $curso->save();
         return redirect()->route('cursos.index');
     }
 

@@ -38,6 +38,19 @@
                                         <textarea type="text" name="descripcion" class="form-control"></textarea>
                                     </div>
                                 </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <label for="programa">Selecionar Programa</label>
+                                    <div class="form-group">
+                                        <select name="id_programa" id="id_programa" class="form-control" required>
+                                            <option value="" disabled>Seleccionar programa</option>
+                                            @foreach ($programas as $programa)
+                                            <option value="{{$programa->id }}">
+                                               {{$programa->nombre}}</option>
+                                            @endforeach
+                                         </select>
+                                    </div>
+                                </div>
                      
                                     <button type="submit" class="btn btn-primary">Guardar</button>
 

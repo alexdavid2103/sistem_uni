@@ -8,6 +8,8 @@ use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\DocenteController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\ProgramaController;
+use App\Http\Controllers\NotaController;
+
 use App\Models\Estudiante;
 use App\Models\Profesor;
 
@@ -36,6 +38,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('estudiantes', EstudianteController::class);
     Route::resource('docentes', DocenteController::class);
     Route::resource('cursos', CursoController::class); 
-    Route::resource('programas', ProgramaController::class);   
+    Route::resource('programas', ProgramaController::class);
+    Route::resource('notas',NotaController::class);  
 });
 
